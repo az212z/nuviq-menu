@@ -608,7 +608,7 @@ chips.addEventListener('click',e=>{
 });
 function setActiveChip(cat){
   document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('active',c.dataset.cat===cat));
-  const a=chips.querySelector('.chip.active'); if(a)a.scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'});
+  const a=chips.querySelector('.chip.active'); if(a){const _s=chips.getBoundingClientRect(),_c=a.getBoundingClientRect();chips.scrollBy({left:(_c.left+_c.width/2)-(_s.left+_s.width/2),behavior:'smooth'});}
   requestAnimationFrame(()=>{setTimeout(movePill,60)});
 }
 
